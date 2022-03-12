@@ -21,8 +21,8 @@
 </template>
 
 <script>
-import { defineComponent } from "@nuxtjs/composition-api";
-import useSwerv from "~/composables/useSwerv";
+import { defineComponent } from '@nuxtjs/composition-api'
+import useSwerv from '~/composables/useSwerv'
 
 export default defineComponent({
   setup() {
@@ -33,7 +33,7 @@ export default defineComponent({
       mutate,
       state,
       STATES,
-    } = useSwerv("https://jsonplaceholder.typicode.com/posts/111");
+    } = useSwerv('https://jsonplaceholder.typicode.com/posts/111')
 
     return {
       posts,
@@ -42,7 +42,7 @@ export default defineComponent({
       mutate,
       state,
       STATES,
-    };
+    }
   },
-});
+})
 </script>

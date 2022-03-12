@@ -28,27 +28,27 @@
 </template>
 
 <script>
-import useSWRV from "swrv";
-import { defineComponent, ref, useContext } from "@nuxtjs/composition-api";
+import useSWRV from 'swrv'
+import { defineComponent, ref, useContext } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   setup() {
-    const { $axios } = useContext();
-    const fetcher = async (key) => await $axios.$get(key);
+    const { $axios } = useContext()
+    const fetcher = async key => await $axios.$get(key)
 
     const {
       data: users,
       error: errorUsers,
       isValidating,
       mutate: mutateUsers,
-    } = useSWRV("https://jsonplaceholder.typicode.com/users", fetcher, {
+    } = useSWRV('https://jsonplaceholder.typicode.com/users', fetcher, {
       revalidateOnFocus: false,
-    });
+    })
 
     const { data: post, error: errorPost } = useSWRV(
-      "https://jsonplaceholder.typicode.com/posts/1",
+      'https://jsonplaceholder.typicode.com/posts/1',
       fetcher
-    );
+    )
 
     return {
       users,
@@ -57,7 +57,7 @@ export default defineComponent({
       errorPost,
       isValidating,
       mutateUsers,
-    };
+    }
   },
-});
+})
 </script>

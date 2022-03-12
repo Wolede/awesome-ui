@@ -29,29 +29,29 @@ import {
   ref,
   useFetch,
   useContext,
-} from "@nuxtjs/composition-api";
+} from '@nuxtjs/composition-api'
 
 export default defineComponent({
   setup() {
-    const { $axios } = useContext();
-    const users = ref([]);
-    const albums = ref([]);
+    const { $axios } = useContext()
+    const users = ref([])
+    const albums = ref([])
 
     const { fetch: fetchUsers, fetchState: fetchUsersState } = useFetch(
       async () => {
         users.value = await $axios.$get(
-          "https://jsonplaceholder.typicode.com/users"
-        );
+          'https://jsonplaceholder.typicode.com/users'
+        )
       }
-    );
+    )
 
     const { fetch: fetchAlbums, fetchState: fetchAlbumsState } = useFetch(
       async () => {
         albums.value = await $axios.$get(
-          "https://jsonplaceholder.typicode.com/albums"
-        );
+          'https://jsonplaceholder.typicode.com/albums'
+        )
       }
-    );
+    )
 
     return {
       users,
@@ -60,7 +60,7 @@ export default defineComponent({
       fetchUsersState,
       fetchAlbums,
       fetchAlbumsState,
-    };
+    }
   },
-});
+})
 </script>
