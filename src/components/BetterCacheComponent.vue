@@ -10,7 +10,7 @@
 
       <template v-if="state === STATES.SUCCESS">
         <div v-if="posts">
-          {{ posts.title }}
+          {{ posts[0].title }}
         </div>
         <div v-else>
           <p>Empty state</p>
@@ -33,7 +33,9 @@ export default defineComponent({
       mutate,
       state,
       STATES,
-    } = useSwerv('https://jsonplaceholder.typicode.com/posts/111')
+    } = useSwerv('https://jsonplaceholder.typicode.com/posts/', {
+      revalidateOnFocus: false,
+    })
 
     return {
       posts,
