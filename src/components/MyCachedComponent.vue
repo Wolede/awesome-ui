@@ -27,14 +27,14 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import useSWRV from 'swrv'
-import { defineComponent, ref, useContext } from '@nuxtjs/composition-api'
+import { defineComponent, useContext } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   setup() {
     const { $axios } = useContext()
-    const fetcher = async key => await $axios.$get(key)
+    const fetcher = async (key: string) => await $axios.$get(key as string)
 
     const {
       data: users,
