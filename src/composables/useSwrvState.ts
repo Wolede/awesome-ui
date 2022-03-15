@@ -1,9 +1,11 @@
 import { ref, watchEffect } from '@nuxtjs/composition-api'
 import { API_STATES } from '~/services/constants'
 
-const useSwrvState = (data, error, isValidating) => {
+type objWithValue = { value : any }
+
+const useSwrvState = (data: objWithValue, error: objWithValue, isValidating: objWithValue) => {
   const STATES = API_STATES
-  const state = ref(STATES.IDLE)
+  const state = ref(STATES.IDLE) //idle by default
 
   watchEffect(() => {
     if (data.value && isValidating.value) {

@@ -34,7 +34,7 @@ import { defineComponent, useContext } from '@nuxtjs/composition-api'
 export default defineComponent({
   setup() {
     const { $axios } = useContext()
-    const fetcher = async (key: string) => await $axios.$get(key as string)
+    const fetcher = async (key: string) => await $axios.$get(key)
 
     const {
       data: users,
