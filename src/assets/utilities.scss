@@ -1,0 +1,12 @@
+
+// hide cursor
+body,
+button,
+a {
+  @media screen and (min-width: 600px) {
+    cursor: none !important;
+  }
+}
+.pre-wrap {
+  white-space: pre-wrap;
+}
